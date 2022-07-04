@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-spanner
+  labels:
+    app: hello-spanner
+  namespace: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-spanner
+  template:
+    metadata:
+      labels:
+        app: hello-spanner
+    spec:
+      containers:
+      - name: hello-spanner
+        image: hello-spanner/hello-spanner:dev0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          protocol: TCP

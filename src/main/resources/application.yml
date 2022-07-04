@@ -1,0 +1,25 @@
+server:
+    port: 9000
+
+    
+spring:
+    application:
+        name: Hello-Spanner
+    cloud:      
+        gcp:
+            credentials:
+                location: classpath:hello.json
+            project-id: ninth-age-343807
+            spanner:
+                 instance-id: hello-spanner
+                 database: hello        
+            
+springdoc:
+  swagger-ui:
+    path: /openapi/swagger-ui.html
+  api-docs:
+    path: /openapi/v3/api-docs
+  packages-to-scan:
+  - com.spanner.demo.controller
+  paths-to-match:
+  - /**                     
